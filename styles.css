@@ -28,6 +28,38 @@
     by using the inherit value.
  */
 * {
+  /* The box-sizing CSS property sets how the total width and height of an element is calculated. */
+  /* By default in the CSS box model, 
+        the width and height you assign to an element 
+        is applied only to the element's content box. 
+        If the element has any border or padding, 
+        this is then added to the width and height to arrive at the size of the box 
+        that's rendered on the screen. 
+        This means that when you set width and height, 
+        you have to adjust the value you give to allow 
+        for any border or padding that may be added. 
+        For example, if you have four boxes with width: 25%;, 
+        if any has left or right padding or a left or right border, 
+        they will not by default fit on one line within the constraints of the parent container.
+    
+        The box-sizing property can be used to adjust this behavior: */
+
+  /* content-box gives you the default CSS box-sizing behavior. 
+    If you set an element's width to 100 pixels, 
+    then the element's content box will be 100 pixels wide, 
+    and the width of any border or padding will be added to the final rendered width, 
+    making the element wider than 100px. */
+
+  /* border-box tells the browser to account for 
+    any border and padding in the values you specify for an element's width and height. 
+    If you set an element's width to 100 pixels, 
+    that 100 pixels will include any border or padding you added, 
+    and the content box will shrink to absorb that extra width. 
+    This typically makes it much easier to size elements. 
+
+    box-sizing: border-box is the default styling that browsers use for 
+    the <table>, <select>, and <button> elements, and for some <input> */
+  /* ONLINE DEMO: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
   box-sizing: border-box;
 }
 
@@ -38,23 +70,89 @@ body {
 /* Style the header */
 header {
   background-color: #f1f1f1;
+  /* The px unit is the magic unit of CSS. 
+    It is not related to the current font 
+    and usually not related to physical centimeters or inches either. 
+    The px unit is defined to be small but visible, 
+    and such that a horizontal 1px wide line can be displayed with sharp edges (no anti-aliasing). 
+    What is sharp, small and visible depends on the device and the way it is used: 
+    do you hold it close to your eyes, like a mobile phone, 
+    at arms length, like a computer monitor, or somewhere in between, like an e-book reader? 
+    The px is thus not defined as a constant length, 
+    but as something that depends on the type of device and its typical use.*/
+
+  /* To get an idea of the appearance of a px, 
+        imagine a CRT computer monitor from the 1990s: 
+        the smallest dot it can display measures about 1/100th of an inch (0.25mm) or a little more. 
+        The px unit got its name from those screen pixels. */
   padding: 30px;
+  /* How do we center align the header text? */
   text-align: center;
   font-size: 35px;
 }
 
 /* Create three equal columns that floats next to each other */
 section {
+  /* The float CSS property places an element on the left or right side of its container, 
+    allowing text and inline elements to wrap around it. 
+    
+    The element is removed from the normal flow of the page, 
+    though still remaining a part of the flow (in contrast to absolute positioning). */
+
+  /* FLOAT VALUES DEMO: https://developer.mozilla.org/en-US/docs/Web/CSS/float */
+
+  /* float: left; The element must float on the left side of its containing block. */
   float: left;
+  /* Relative length units: 
+        em (font size of parent), 
+        vw (1% viewport's width), 
+        vh (1% of viewports height),
+         */
+  /* In a lot of cases, a percentage is treated in the same way as a length. 
+        The thing with percentages is that they are 
+        always set relative to some other value. 
+        For example, if you set an element's font-size as a percentage, 
+        it will be a percentage of the font-size of the element's parent. 
+        If you use a percentage for a width value, 
+        it will be a percentage of the width of the parent. */
+  /* We want each column to take up 1/3 of the parent element, main, so we'll set it to... */
   width: 33.33%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 300px; /* here to create space */
 }
 
 /* Clear floats after the columns */
+/* In CSS, ::after creates a pseudo-element 
+        that is the last child of the selected element. 
+        It is often used to add cosmetic content to an element 
+        with the content property. 
+        It is inline by default. */
+/* When their computed content value is not none, 
+        these pseudo-elements generate boxes as if they were immediate children 
+        of their originating element, 
+        with content as specified by content. */
+/* Represents a styleable child pseudo-element 
+    immediately after the originating element’s actual content. */
+
 main:after {
   content: "";
+  /* The display CSS property sets whether an element is treated as a block 
+    or inline element 
+    and the layout used for its children, 
+    such as flow layout, grid or flex.
+    Formally, the display property sets an element's inner and outer display types.
+        The outer type sets an element's participation in flow layout; 
+        the inner type sets the layout of children.  */
+  /* display: table;
+        These elements behave like HTML <table> elements. 
+        It defines a block-level box. */
+
   display: table;
+
+  /* The clear property controls the flow next to floated elements.
+        Clear property specifies what should happen with the element 
+        that is next to a floating element. */
+  /* clear: both; The element is pushed below both left and right floated elements	 */
   clear: both;
 }
 
