@@ -1,2 +1,73 @@
+/* CSS Inheritance:
+    CSS rulesets cascade down the CSS hierarchy from parent selectors 
+    to their children selectors. 
+    
+    These CSS rulesets are inherited from their parent selectors.
+    The child element will naturally inherit a CSS property with its value from the parent element 
+    if the CSS property is not specified.
+
+    Though not all CSS rules/properties are inherited, 
+    all font-* properties are inherited. This includes:
+        font-size
+        font-family
+        font-weight
+        The color property is also inherited.
+
+    Inheritance in CSS occurs when an inheritable property is not set on an element. 
+    It goes up in its parent chain to set the property value to its parent value.
+
+    CSS properties such as 
+        height, 
+        width, 
+        border, 
+        margin, 
+        padding, etc. 
+    are not inherited. 
+    
+    We can enable inheritance on noninheritable CSS properties 
+    by using the inherit value.
+ */
+* {
+  box-sizing: border-box;
+}
+
 body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* Create three equal columns that floats next to each other */
+section {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+main:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }
